@@ -1,4 +1,0 @@
-'''
-Roguelike Design
-'''
-
