@@ -98,7 +98,7 @@ class EventLoop(Tk):
             if key in self.actions:
                 action = self.actions[key].on_call
                 if action:
-                    action(self.view)
+                    action(self)
             if self.game_over:
                 self.destroy()
             else:
