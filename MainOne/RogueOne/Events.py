@@ -5,7 +5,12 @@ from tkinter import *
 
 
 class Event:
-    pass
+    ''' Add a key-level event into the loop - see set_KeyEvent(below) '''
+    def __init__(self, keyChar, helpStr, on_call):
+        self.keyChar = keyChar
+        self.helpStr = helpStr
+        self.on_call = on_call
+        
 
 class EventLoop(Tk):
     
@@ -24,18 +29,23 @@ class EventLoop(Tk):
         self.canvas     = None
         self.font       = None
         self.game_over  = False
-        self.reserved   = "?!^&*><+-=@"
         self.actions    = dict()
-        self.actions[char_up]    = (char_up, "up", self.on_up)
-        self.actions[char_down]  = (char_down, "down", self.on_down)
-        self.actions[char_left]  = (char_left, "left", self.on_left)
-        self.actions[char_right] = (char_right, "right", self.on_right)
-        for key in self.actions:
-            if key in self.reserved:
-                raise Exception("Error: The key '" + key + "' is reserved.")
-        self.actions['^'] = ('^', "jump", self.on_jump)
-        self.actions['?'] = ('?', "help", self.on_help)
-        self.actions['!'] = ('!', "quit", self.on_quit)
+        self.set_KeyEvent(Event(char_up, "up", self.on_up))
+        self.set_KeyEvent(Event(char_down, "down", self.on_down))
+        self.set_KeyEvent(Event(char_left, "left", self.on_left))
+        self.set_KeyEvent(Event(char_right, "right", self.on_right))
+        self.set_KeyEvent(Event('?', "help", self.on_help))
+        self.set_KeyEvent(Event('!', "quit", self.on_quit))
+
+    def set_KeyEvent(self, event):
+        ''' Support user-assignable, single-key, events '''
+        if isinstance(event, Event) is False:
+            return False
+        self.actions[event.keyChar] = event
+        return True
+
+    def get_KeyEvents(self):
+        return list(self.actions.keys())
 
     def start(self):
         self.canvas = Canvas(self, width=self.width, height=self.height)
@@ -74,7 +84,7 @@ class EventLoop(Tk):
                 return True
         return False
 
-    def on_dump(self, event):
+    def event_Dump(self, event):
         zdict = event.__dict__
         for key in zdict:
             print("{0:>10s} = {1} ".format(key, zdict[key]))
@@ -82,11 +92,13 @@ class EventLoop(Tk):
 
     def event_KeyPress(self, event):
         if False:
-            self.on_dump(event)
+            self.event_Dump(event)
         else:
             key = event.char
             if key in self.actions:
-                self.actions[key][2](self.view)
+                action = self.actions[key].on_call
+                if action:
+                    action(self.view)
             if self.game_over:
                 self.destroy()
             else:
@@ -112,20 +124,14 @@ class EventLoop(Tk):
     def on_help(self, view):
         for key in self.actions:
             info = self.actions[key]
-            print("'{}' = {}".format(info[0], info[1]))
-        input(" --- enter ---")
+            print("'{}' = {}".format(info.keyChar, info.helpStr))
 
     def on_quit(self, view):
         self.game_over = True
 
     def on_start(self, view):
         self.view = view
-        print("on_start")
         self.start()
-
-    def on_jump(self, view):
-        self.view = view
-        print("on_jump")
     
     def mainloop(self, view):
         self.on_start(view)
