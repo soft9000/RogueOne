@@ -70,7 +70,7 @@ class EventLoop(Tk):
         '''
         if cellx < self.cell_width:
             if celly < self.cell_height:
-                self.screen[cellx][celly] = ichar
+                self.screen[celly][cellx] = ichar
                 return True
         return False
 

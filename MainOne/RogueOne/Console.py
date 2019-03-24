@@ -49,22 +49,22 @@ class ConsoleApplication(Rectangle):
     def do_up(self, view):
         player = self._get_player()
         if player:
-            player.on_move(player.location[0] - 1, player.location[1])
+            player.on_move(player.location[0], player.location[1] - 1)
 
     def do_down(self, view):
         player = self._get_player()
         if player:
-            player.on_move(player.location[0] + 1, player.location[1])
+            player.on_move(player.location[0], player.location[1] + 1)
 
     def do_left(self, view):
         player = self._get_player()
         if player:
-            player.on_move(player.location[0], player.location[1] - 1)
+            player.on_move(player.location[0] - 1, player.location[1])
 
     def do_right(self, view):
         player = self._get_player()
         if player:
-            player.on_move(player.location[0], player.location[1] + 1)
+            player.on_move(player.location[0] + 1, player.location[1])
         
     def on_plot(self, view):
         '''
