@@ -7,7 +7,7 @@ import RogueOne.Resource as Resource
 from RogueOne.Events import EventLoop as Game
 
 console = Console.ConsoleApplication()
-ship = Ship.ShipOne("Player", '#', 1, 20)
+ship = Ship.ShipOne(Console.PLAYER, '#', 1, 20)
 planet = Planet.PlanetOne("Home World", 'h', 3, 15)
 resource = Resource.PlayerResource("Credit", '$', 5, 10)
 
