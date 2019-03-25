@@ -49,8 +49,8 @@ class ConsoleApplication(Rectangle):
     def event_MouseClick(self, button, xpos, ypos):
         print(button, xpos, ypos)
 
-    def event_KeyPress(self, event):
-        key = event.char
+    def event_KeyPress(self, key, xpos, ypos):
+        print(key, xpos, ypos)
         if key in self.actions:
             action = self.actions[key].on_call
             if action:

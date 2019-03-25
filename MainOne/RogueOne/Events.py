@@ -76,7 +76,7 @@ class EventGUI(Tk):
         self.view.event_MouseClick(event.num, event.x_root, event.y_root)
     
     def event_KeyPress(self, event):
-        self.view.event_KeyPress(event)
+        self.view.event_KeyPress(event.char, event.x_root, event.y_root)
         
     def mainloop(self, view):
         self.start(view)
