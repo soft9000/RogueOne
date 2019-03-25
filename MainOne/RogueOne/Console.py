@@ -61,7 +61,8 @@ class ConsoleApplication(Rectangle):
     def event_gameStep(self):
         if self.do_next() is False:
             self.game_over = True
-        self.on_plot()
+        else:
+            self.on_plot()
 
     def add_mover(self, mover):
         ''' Add a console Mover '''
