@@ -1,6 +1,5 @@
 
 from RogueOne.Rectangle import Rectangle
-from RogueOne.View import View
 
 PLAYER = "Player"
 
