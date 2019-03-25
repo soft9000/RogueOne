@@ -86,37 +86,3 @@ class EventGUI(Tk):
         ''' One can call either start(above), or mainloop(), but not both '''
         self.start(view)
 
-
-        ''' Copy the screen-buffer onto the display device. '''
-        for ss, row in enumerate(self.screen_rows):
-            buffer = ''
-            for zch in self.screen[ss]:
-                buffer += zch
-            self.canvas.itemconfigure(row, text=buffer, font=self.font)
-
-    def plot(self, ichar, cellx, celly):
-        '''
-        Place a character into the screen-buffer.
-        Return True on success, else False.
-        '''
-        if cellx < self.cell_width:
-            if celly < self.cell_height:
-                self.screen[celly][cellx] = ichar
-                return True
-        return False
-
-    def event_Dump(self, event):
-        zdict = event.__dict__
-        for key in zdict:
-            print("{0:>10s} = {1} ".format(key, zdict[key]))
-        print('=' * 10)
-    
-    def event_MouseClick(self, event):
-        self.view.event_MouseClick(event.num, event.x_root, event.y_root)
-    
-    def event_KeyPress(self, event):
-        self.view.event_KeyPress(event.char, event.x_root, event.y_root)
-        
-    def mainloop(self, view):
-        self.start(view)
-

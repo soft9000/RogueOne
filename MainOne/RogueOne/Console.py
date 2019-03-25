@@ -1,4 +1,3 @@
-
 from RogueOne.Rectangle import Rectangle
 
 PLAYER = "Player"
