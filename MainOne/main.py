@@ -4,7 +4,7 @@ import RogueOne.Console as Console
 import RogueOne.Planet as Planet
 import RogueOne.Ship as Ship
 import RogueOne.Resource as Resource
-from RogueOne.Events import EventLoop as Game
+from RogueOne.Events import EventGUI as Game
 
 console = Console.ConsoleApplication()
 ship = Ship.ShipOne(Console.PLAYER, '#', 1, 20)
