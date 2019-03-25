@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 
-from collections import OrderedDict
 from tkinter import *
         
 
 class EventGUI(Tk):
     
-    ''' The TK window that we will use for drawing, as well as managing input events. '''
+    ''' The TK window that we use for drawing, as well as managing input events. '''
 
     def __init__(self, width=800, height=600):
         super().__init__()
@@ -22,6 +21,7 @@ class EventGUI(Tk):
         self.font       = None
 
     def start(self, view):
+        ''' One can call either start(), or mainloop(below), but not both '''
         self.view = view
         self.canvas = Canvas(self, width=self.width, height=self.height)
         self.bind_all('<KeyPress>', self.event_KeyPress, '+')
@@ -35,6 +35,7 @@ class EventGUI(Tk):
         super().mainloop()
 
     def stop(self):
+        ''' When your UI is no longer needed, use stop() to close the window. '''
         self.destroy()
 
     def clear_screen(self):
@@ -48,6 +49,44 @@ class EventGUI(Tk):
                 self.screen_rows.append(zid) 
 
     def show_screen(self):
+        ''' Copy the screen-buffer onto the display device. '''
+        for ss, row in enumerate(self.screen_rows):
+            buffer = ''
+            for zch in self.screen[ss]:
+                buffer += zch
+            self.canvas.itemconfigure(row, text=buffer, font=self.font)
+
+    def plot(self, ichar, cellx, celly):
+        '''
+        Place a character into the screen-buffer.
+        Return True on success, else False.
+        '''
+        if cellx < self.cell_width:
+            if celly < self.cell_height:
+                self.screen[celly][cellx] = ichar
+                return True
+        return False
+
+    def event_Dump(self, event):
+        ''' A handy way to see what a Tkinter Event has to offer. '''
+        zdict = event.__dict__
+        for key in zdict:
+            print("{0:>10s} = {1} ".format(key, zdict[key]))
+        print('=' * 10)
+    
+    def event_MouseClick(self, event):
+        ''' Used by the event manager. Also handy for injecting test cases. '''
+        self.view.event_MouseClick(event.num, event.x_root, event.y_root)
+    
+    def event_KeyPress(self, event):
+        ''' Used by the event manager. Also handy for injecting test cases. '''
+        self.view.event_KeyPress(event.char, event.x_root, event.y_root)
+        
+    def mainloop(self, view):
+        ''' One can call either start(above), or mainloop(), but not both '''
+        self.start(view)
+
+
         ''' Copy the screen-buffer onto the display device. '''
         for ss, row in enumerate(self.screen_rows):
             buffer = ''
