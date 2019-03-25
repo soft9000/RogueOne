@@ -40,7 +40,7 @@ class EventGUI(Tk):
     def clear_screen(self):
         ''' Fills the internal screen-buffer with the default character. '''
         self.screen = [[' '] * self.cell_width
-                       for yy in range(self.cell_height * 2)]
+                       for yy in range(self.cell_height)]
         if len(self.screen_rows) is 0:
             for rowy in range(self.cell_height):
                 zid = self.canvas.create_text(10, (rowy * self.font_sz) + 10,
