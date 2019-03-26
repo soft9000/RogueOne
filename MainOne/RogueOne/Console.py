@@ -95,22 +95,22 @@ class ConsoleApplication(Rectangle):
     def do_up(self):
         player = self._get_player()
         if player:
-            player.on_move(player.location[0], player.location[1] - 1)
+            player.on_move(player.location.x, player.location.y - 1)
 
     def do_down(self):
         player = self._get_player()
         if player:
-            player.on_move(player.location[0], player.location[1] + 1)
+            player.on_move(player.location.x, player.location.y + 1)
 
     def do_left(self):
         player = self._get_player()
         if player:
-            player.on_move(player.location[0] - 1, player.location[1])
+            player.on_move(player.location.x - 1, player.location.y)
 
     def do_right(self):
         player = self._get_player()
         if player:
-            player.on_move(player.location[0] + 1, player.location[1])
+            player.on_move(player.location.x + 1, player.location.y)
 
     def do_help(self):
         for key in self.actions:

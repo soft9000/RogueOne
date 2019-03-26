@@ -1,3 +1,6 @@
+import os
+import sys
+sys.path.insert(1, os.path.join(sys.path[0], '../'))
 
 from RogueOne.Shower import Shower
 
@@ -7,8 +10,8 @@ class Mover(Shower):
 
     def on_move(self, xpos, ypos):
         ''' Relocate Mover '''
-        self.location[0] = xpos
-        self.location[1] = ypos
+        self.location.x = xpos
+        self.location.y = ypos
 
     def on_next(self):
         ''' Process next MOVEment '''

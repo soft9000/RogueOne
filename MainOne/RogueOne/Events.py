@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 
+import os
+import sys
+sys.path.insert(1, os.path.join(sys.path[0], '../'))
+
+from RogueOne.Points import *
 from tkinter import *
-        
 
 class EventGUI(Tk):
     
@@ -56,14 +60,20 @@ class EventGUI(Tk):
                 buffer += zch
             self.canvas.itemconfigure(row, text=buffer, font=self.font)
 
-    def plot(self, ichar, cellx, celly):
+    def grid2gui(self, gridPoint):
+        ''' Map a GridPoint to a GuiPoint. Works well on Windows 10. Others might vary? '''
+        xpos = ((gridPoint.x + 1) * self.font_sz) - (gridPoint.x * 3)
+        ypos = gridPoint.y + 1
+        return GuiPoint(xpos, ypos * self.font_sz)
+
+    def plot(self, ichar, gridPoint):
         '''
         Place a character into the screen-buffer.
         Return True on success, else False.
         '''
-        if cellx < self.cell_width:
-            if celly < self.cell_height:
-                self.screen[celly][cellx] = ichar
+        if gridPoint.x < self.cell_width:
+            if gridPoint.y < self.cell_height:
+                self.screen[gridPoint.y][gridPoint.x] = ichar
                 return True
         return False
 
