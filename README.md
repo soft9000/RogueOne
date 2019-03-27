@@ -1,5 +1,5 @@
 # RogueOne
-Summary: A unicode / string based Roguelike for Python 3.
+Summary: A unicode / string based Roguelike Framework for Python 3.
 
 # Students
 The way to mastery is to continue to practice?
