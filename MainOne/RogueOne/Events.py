@@ -66,6 +66,16 @@ class EventGUI(Tk):
         ypos = gridPoint.y + 1
         return GuiPoint(xpos, ypos * self.font_sz)
 
+    def peek(self, gridPoint):
+        '''
+        Return a character from the screen-buffer. Return 'None' if the point
+        was invalid.
+        '''
+        if gridPoint.x < self.cell_width:
+            if gridPoint.y < self.cell_height:
+                return self.screen[gridPoint.y][gridPoint.x]
+        return None
+
     def plot(self, ichar, gridPoint):
         '''
         Place a character into the screen-buffer.
