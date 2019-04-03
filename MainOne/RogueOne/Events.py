@@ -61,8 +61,9 @@ class EventGUI(Tk):
             self.canvas.itemconfigure(row, text=buffer, font=self.font)
 
     def grid2gui(self, gridPoint):
-        ''' Map a GridPoint to a GuiPoint. Works well on Windows 10. Others might vary? '''
-        xpos = ((gridPoint.x + 1) * self.font_sz) - (gridPoint.x * 3)
+        xpos = ((gridPoint.x + 1) * self.font_sz)
+        if sys.platform[0] == 'w':
+            xpos -= (gridPoint.x * 3) # Windows 10 ... + other 'dozes?
         ypos = gridPoint.y + 1
         return GuiPoint(xpos, ypos * self.font_sz)
 
