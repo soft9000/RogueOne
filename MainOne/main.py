@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# RogueOne works wherever Tkinter has been installed.
 
 import RogueOne.Console as Console
 import RogueOne.Planet as Planet
