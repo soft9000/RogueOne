@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-# RogueOne works wherever Tkinter has been installed.
+''' 
+RogueOne - This framework will work wherever 
+Python 3 & Tkinter have been installed.
+'''
 
 import RogueOne.Console as Console
 import RogueOne.Planet as Planet
