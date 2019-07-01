@@ -1,5 +1,5 @@
 # RogueOne
-Summary: A unicode / string based Roguelike Framework for Python 3.
+Summary: A cross-platform unicode / string based TUI and GUI Framework for Python 3. RogueOne "just works" everywhere Python 3 & Tkinter (Microsoft Windows, macOS, Linux, etc.) has been installed.
 
 # Students
 The way to mastery is to continue to practice?
