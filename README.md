@@ -13,8 +13,5 @@ If you need help learning Python 3, students might enjoy our training on Udemy:
 https://www.udemy.com/user/randallnagy2/
 
 
-# Community
-New 'Pythoneers might also enjoy the official video: https://youtu.be/lDl4nTOLiWM
-
-Community discounts are avaialble at: https://www.facebook.com/groups/392101461495436/
-
+# Video
+If you would like to learn more, then you might enjoy the introductory video: https://youtu.be/lDl4nTOLiWM
