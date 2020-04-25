@@ -119,7 +119,8 @@ class ConsoleApplication(Rectangle):
  
     def do_quit(self):
         self.game_over = True
-        self.parent.stop()
+        if self.parent:
+            self.parent.stop()
        
     def on_plot(self):
         '''
@@ -127,7 +128,8 @@ class ConsoleApplication(Rectangle):
         (i.e. do_next() returns False) so as to allow us to
         display gameplay results (etc.)
         '''
-        self.parent.clear_screen()
+        if self.parent:
+            self.parent.clear_screen()
         # Givers FIRST
         for key in self.resources:
             self.resources[key].on_plot(self.parent)
@@ -136,5 +138,6 @@ class ConsoleApplication(Rectangle):
         # Takers LAST
         for key in self.movers:
             self.movers[key].on_plot(self.parent)
-        self.parent.show_screen()    
+        if self.parent:
+            self.parent.show_screen()    
 
