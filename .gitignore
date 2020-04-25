@@ -155,3 +155,5 @@ venv.bak/
 
 # (VS)
 *.pyc
+/.vs/slnx.sqlite
+/.vs/ProjectSettings.json

@@ -16,7 +16,7 @@ class ConsoleApplication(Rectangle):
     simulation (i.e. actual area / map could be
     A LOT larger!)
     '''
-    def __init__(self, char_up='e', char_down='c', char_left='s', char_right='f'):
+    def __init__(self, char_up='Up', char_down='Down', char_left='Left', char_right='Right'):
         super().__init__(80,25)
         self.game_over  = False
         self.parent = None
@@ -29,7 +29,8 @@ class ConsoleApplication(Rectangle):
         self.set_KeyEvent(Event(char_left, "left", self.do_left))
         self.set_KeyEvent(Event(char_right, "right", self.do_right))
         self.set_KeyEvent(Event('?', "help", self.do_help))
-        self.set_KeyEvent(Event('!', "quit", self.do_quit))
+        self.set_KeyEvent(Event('F1', "help", self.do_help))
+        self.set_KeyEvent(Event('End', "quit", self.do_quit))
 
     def set_Parent(self, parent):
         self.parent = parent

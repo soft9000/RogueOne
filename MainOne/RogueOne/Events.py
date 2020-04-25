@@ -28,6 +28,34 @@ class EventGUI(Tk):
         ''' One can call either start(), or mainloop(below), but not both '''
         self.view = view
         self.canvas = Canvas(self, width=self.width, height=self.height)
+        self.bind_all('<Home>', self.event_NavPress, '+')
+        self.bind_all('<End>', self.event_NavPress, '+')
+        self.bind_all('<Return>', self.event_NavPress, '+')
+        self.bind_all('<Insert>', self.event_NavPress, '+')
+        self.bind_all('<Delete>', self.event_NavPress, '+')
+        self.bind_all('<Prior>', self.event_NavPress, '+') # Page Up
+        self.bind_all('<Next>', self.event_NavPress, '+')  # Page Down
+        self.bind_all('<Print>', self.event_NavPress, '+')
+        self.bind_all('<BackSpace>', self.event_NavPress, '+')
+        self.bind_all('<Tab>', self.event_NavPress, '+')
+
+        self.bind_all('<F1>', self.event_NavPress, '+')
+        self.bind_all('<F2>', self.event_NavPress, '+')
+        self.bind_all('<F3>', self.event_NavPress, '+')
+        self.bind_all('<F4>', self.event_NavPress, '+')
+        self.bind_all('<F5>', self.event_NavPress, '+')
+        self.bind_all('<F6>', self.event_NavPress, '+')
+        self.bind_all('<F7>', self.event_NavPress, '+')
+        self.bind_all('<F8>', self.event_NavPress, '+')
+        self.bind_all('<F9>', self.event_NavPress, '+')
+        self.bind_all('<F10>', self.event_NavPress, '+')
+        self.bind_all('<F11>', self.event_NavPress, '+')
+        self.bind_all('<F12>', self.event_NavPress, '+')
+
+        self.bind_all('<Up>', self.event_NavPress, '+')
+        self.bind_all('<Down>', self.event_NavPress, '+')
+        self.bind_all('<Left>', self.event_NavPress, '+')
+        self.bind_all('<Right>', self.event_NavPress, '+')
         self.bind_all('<KeyPress>', self.event_KeyPress, '+')
         self.bind_all('<Button-1>', self.event_MouseClick, '+')
         self.bind_all('<Button-2>', self.event_MouseClick, '+')
@@ -102,6 +130,10 @@ class EventGUI(Tk):
     def event_KeyPress(self, event):
         ''' Used by the event manager. Also handy for injecting test cases. '''
         self.view.event_KeyPress(event.char, event.x_root, event.y_root)
+    
+    def event_NavPress(self, event):
+        ''' Used by the event manager. Also handy for injecting test cases. '''
+        self.view.event_KeyPress(event.keysym, event.x_root, event.y_root)
         
     def mainloop(self, view):
         ''' One can call either start(above), or mainloop(), but not both '''
