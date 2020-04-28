@@ -27,16 +27,16 @@ class NavCalc():
         if next.equals(self.there):
             return True, GridPoint(self.there.x, self.there.y) # there
 
-        self.course.x = self.there.x - self.here.x;
-        self.course.y = self.there.y - self.here.y;
+        self.course.x = self.there.x - self.here.x
+        self.course.y = self.there.y - self.here.y
         trend = self.rnd.randint(1,3)
         if trend == 1:
-            next.x = self.inc(self.course.x, next.x);
+            next.x = self.inc(self.course.x, next.x)
         elif trend == 2:
-            next.y = self.inc(self.course.y, next.y);
+            next.y = self.inc(self.course.y, next.y)
         else:
-            next.x = self.inc(self.course.x, next.x);
-            next.y = self.inc(self.course.y, next.y);
+            next.x = self.inc(self.course.x, next.x)
+            next.y = self.inc(self.course.y, next.y)
 
         return False, GridPoint(next.x, next.y) # not there
 

@@ -157,3 +157,4 @@ venv.bak/
 *.pyc
 /.vs/slnx.sqlite
 /.vs/ProjectSettings.json
+/.vs/VSWorkspaceState.json
