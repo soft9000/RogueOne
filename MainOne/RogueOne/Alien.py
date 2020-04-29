@@ -7,7 +7,7 @@ class Alien(Noun):
 
     def __init__(self, name, glyph, xpos, ypos, map_width, map_height):
         super().__init__(name, glyph, xpos, ypos)
-        self.nav = NavCalc()
+        self.nav = NavCalc(xpos, ypos)
         self.map_width = map_width
         self.map_height = map_height
         self.nav.plot(xpos, ypos)

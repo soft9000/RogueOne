@@ -10,10 +10,10 @@ class NavCalc():
     so as to better simulate different realities.
     '''
 
-    def __init__(self):
-       self.here = GridPoint(0,0)
-       self.there = GridPoint(0,0)
-       self.course = GridPoint(0,0)
+    def __init__(self, startX=0, startY=0, destX=0, destY=0):
+       self.here = GridPoint(startX, startY)
+       self.there = GridPoint(destX, destY)
+       self.course = GridPoint(-1,-1)
        self.rnd = Random()
        self.rnd.seed()
 
