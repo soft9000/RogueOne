@@ -11,11 +11,3 @@ To get started, simply run main.py.
 If you need help learning Python 3, students might enjoy our training on Udemy:
 
 https://www.udemy.com/user/randallnagy2/
-
-
-# Video
-If you would like to learn more, then you might enjoy the introductory video: https://youtu.be/lDl4nTOLiWM
-
-Finally, here is a design review for the Navigational Computer:
-
-https://www.facebook.com/PythonByRequirement/videos/163794255008524
