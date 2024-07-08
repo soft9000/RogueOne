@@ -1,6 +1,8 @@
 # RogueOne
 Summary: A cross-platform unicode / string based TUI and GUI Framework for Python 3. RogueOne "just works" everywhere Python 3 & Tkinter (Microsoft Windows, macOS, Linux, etc.) has been installed.
 
+zVideo [is here](https://takelessons.com/computer-skills/python-lessons/videos/625b95f4532046cb911cc8138bbeaff3)
+
 # Students
 The way to mastery is to continue to practice?
 
